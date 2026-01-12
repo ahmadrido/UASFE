@@ -101,7 +101,12 @@ export const fetchPopularMovies = async (page = 1) => {
     }
 
     const response = await fetch(
-      `${BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`
+      `${BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}` ,{
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${API_KEY}`
+        }
+      }
     );
 
     if (!response.ok) {
@@ -139,7 +144,12 @@ export const searchMovies = async (query, page = 1) => {
     }
 
     const response = await fetch(
-      `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&query=${encodeURIComponent(query)}&page=${page}`
+      `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&query=${encodeURIComponent(query)}&page=${page}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${API_KEY}`
+      }
+    }
     );
 
     if (!response.ok) {
@@ -172,7 +182,12 @@ export const fetchMovieDetails = async (movieId) => {
     }
 
     const response = await fetch(
-      `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`
+      `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${API_KEY}`
+        }
+      }
     );
 
     if (!response.ok) {
