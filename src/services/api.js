@@ -9,10 +9,8 @@
  * - Error handling with fallback dummy data
  */
 
-import env from "react-dotenv";
-
 // TMDB API Configuration 
-const API_KEY = env.REACT_APP_TMDB_API_KEY;
+const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 // indonesian language
 const BASE_URL = 'https://api.themoviedb.org/3';
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p';
